@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deep-research-agent"
+version = "0.1.0"
+description = "A LangGraph-powered research agent for comprehensive web research"
+authors = [{name = "Andrew Hoang", email = "codentell@gmail.com"}]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "langgraph>=0.2.6",
+    "langchain>=0.3.19",
+    "langchain-google-genai",
+    "python-dotenv>=1.0.1",
+    "langgraph-sdk>=0.1.57",
+    "langgraph-cli",
+    "langgraph-api",
+    "fastapi",
+    "google-genai"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+
+[tool.isort]
+profile = "black"
+line_length = 88
